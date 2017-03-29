@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.herench.dao.perform.PerformDao">
+
+    <insert id="zymx" parameterType="java.util.Map">
+        INSERT INTO zymx_his (
+            charge_code,
+            charge_name,
+            charge_class,
+            charge_price,
+            charge_quantity,
+            charge_sum,
+            dept_code,
+            exec_dept_code,
+            exec_dept_code2,
+            doct_code,
+            exec_doctor_code,
+            nurse_dept_code,
+            patient_code,
+            visit_id,
+            date_time)
+        VALUES (
+            #{CHARGE_CODE,jdbcType=VARCHAR},
+            #{CHARGE_NAME,jdbcType=VARCHAR},
+            #{CHARGE_CLASS,jdbcType=VARCHAR},
+            #{CHARGE_PRICE,jdbcType=VARCHAR},
+            #{CHARGE_QUANTITY,jdbcType=NUMERIC},
+            #{CHARGE_SUM,jdbcType=NUMERIC},
+            #{DEPT_CODE,jdbcType=VARCHAR},
+            #{EXEC_DEPT_CODE,jdbcType=VARCHAR},
+            #{EXEC_DEPT_CODE2,jdbcType=VARCHAR},
+            #{DOCT_CODE,jdbcType=VARCHAR},
+            #{EXEC_DOCTOR_CODE,jdbcType=VARCHAR},
+            #{NURSE_DEPT_CODE,jdbcType=VARCHAR},
+            #{PATIENT_CODE,jdbcType=VARCHAR},
+            #{VISIT_ID,jdbcType=VARCHAR},
+            cast(#{DATE_TIME,jdbcType=VARCHAR} AS DATETIME)
+        )
+    </insert>
+
+    <insert id="mzmx" parameterType="java.util.Map">
+        INSERT INTO mzmx_his (
+            charge_code,
+            charge_name,
+            charge_class,
+            charge_price,
+            charge_quantity,
+            charge_sum,
+            dept_code,
+            exec_dept_code,
+            exec_dept_code2,
+            doct_code,
+            exec_doctor_code,
+            nurse_dept_code,
+            patient_code,
+            clinic_id,
+            date_time
+        ) VALUES (
+            #{CHARGE_CODE,jdbcType=VARCHAR},
+            #{CHARGE_NAME,jdbcType=VARCHAR},
+            #{CHARGE_CLASS,jdbcType=VARCHAR},
+            #{CHARGE_PRICE,jdbcType=NUMERIC},
+            #{CHARGE_QUANTITY,jdbcType=NUMERIC},
+            #{CHARGE_SUM,jdbcType=NUMERIC},
+            #{DEPT_CODE,jdbcType=VARCHAR},
+            #{EXEC_DEPT_CODE,jdbcType=VARCHAR},
+            #{EXEC_DEPT_CODE2,jdbcType=VARCHAR},
+            #{DOCT_CODE,jdbcType=VARCHAR},
+            #{EXEC_DOCTOR_CODE,jdbcType=VARCHAR},
+            #{NURSE_DEPT_CODE,jdbcType=VARCHAR},
+            #{PATIENT_CODE,jdbcType=VARCHAR},
+            #{CLINIC_ID,jdbcType=VARCHAR},
+            cast(#{DATE_TIME,jdbcType=VARCHAR} AS DATETIME)
+        )
+    </insert>
+
+    <delete id="deleteWzItem">
+        delete from wz_item
+    </delete>
+
+    <insert id="wzItem" parameterType="java.util.Map">
+        INSERT INTO wz_item (
+            wz_code,
+            wz_name,
+            wz_class,
+            class_name,
+            wz_price,
+            wz_ge,
+            flag
+        ) VALUES (
+            #{WZ_CODE,jdbcType=VARCHAR},
+            #{WZ_NAME,jdbcType=VARCHAR},
+            #{WZ_CLASS,jdbcType=VARCHAR},
+            #{CLASS_NAME,jdbcType=VARCHAR},
+            #{WZ_PRICE,jdbcType=NUMERIC},
+            #{WZ_GE,jdbcType=VARCHAR},
+            #{FLAG,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <delete id="deleteChargeItem">
+        delete from charge_item
+    </delete>
+
+    <insert id="chargeItem" parameterType="java.util.Map">
+        INSERT INTO charge_item (
+            charge_code,
+            charge_name,
+            charge_class,
+            charge_price,
+            charge_ge,
+            charge_dw
+        ) VALUES (
+            #{CHARGE_CODE,jdbcType=VARCHAR},
+            #{CHARGE_NAME,jdbcType=VARCHAR},
+            #{CHARGE_CLASS,jdbcType=VARCHAR},
+            #{CHARGE_PRICE,jdbcType=NUMERIC},
+            #{CHARGE_GE,jdbcType=VARCHAR},
+            #{CHARGE_DW,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <insert id="wzDetial" parameterType="java.util.Map">
+        INSERT INTO wz_detail (
+            wz_code,
+            wz_name,
+            wz_class,
+            wz_price,
+            wz_quantity,
+            wz_fee,
+            dept_code,
+            stroe_code,
+            date_time
+        ) VALUES (
+            #{WZ_CODE,jdbcType=VARCHAR},
+            #{WZ_NAME,jdbcType=VARCHAR},
+            #{WZ_CLASS,jdbcType=VARCHAR},
+            #{WZ_PRICE,jdbcType=VARCHAR},
+            #{WZ_QUANTITY,jdbcType=VARCHAR},
+            #{WZ_FEE,jdbcType=VARCHAR},
+            #{DEPT_CODE,jdbcType=VARCHAR},
+            #{STROE_CODE,jdbcType=VARCHAR},
+            cast(#{DATE_TIME,jdbcType=VARCHAR} AS DATETIME)
+        )
+    </insert>
+
+    <insert id="ssmx" parameterType="java.util.Map">
+        INSERT INTO ssmx_his (
+            charge_code,
+            charge_name,
+            charge_price,
+            charge_quantity,
+            dept_code,
+            doctor_code,
+            assist_code_first,
+            assist_code_second,
+            assist_code_third,
+            patient_code,
+            date_time
+        ) VALUES (
+            #{CHARGE_CODE,jdbcType=VARCHAR},
+            #{CHARGE_NAME,jdbcType=VARCHAR},
+            #{CHARGE_PRICE,jdbcType=VARCHAR},
+            #{CHARGE_QUANTITY,jdbcType=VARCHAR},
+            #{DEPT_CODE,jdbcType=VARCHAR},
+            #{DOCTOR_CODE,jdbcType=VARCHAR},
+            #{ASSIST_CODE_FIRST,jdbcType=VARCHAR},
+            #{ASSIST_CODE_SECOND,jdbcType=VARCHAR},
+            #{ASSIST_CODE_THIRD,jdbcType=VARCHAR},
+            #{PATIENT_CODE,jdbcType=VARCHAR},
+            #{DATE_TIME,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <delete id="deleteDeptInfo">
+        delete from dept_info_his
+    </delete>
+
+    <insert id="deptInfo" parameterType="java.util.Map">
+        INSERT INTO dept_info_his (
+            dept_code,
+            dept_name,
+            ks_code,
+            KS_name,
+            nurse_dept_code,
+            nurse_dept_name
+        ) VALUES (
+            #{DEPT_CODE,jdbcType=VARCHAR},
+            #{DEPT_NAME,jdbcType=VARCHAR},
+            #{KS_CODE,jdbcType=VARCHAR},
+            #{KS_NAME,jdbcType=VARCHAR},
+            #{NURSE_DEPT_CODE,jdbcType=VARCHAR},
+            #{NURSE_DEPT_NAME,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <delete id="deleteEmpInfo">
+        delete from employee_info_his
+    </delete>
+
+    <insert id="empInfo" parameterType="java.util.Map">
+        INSERT INTO employee_info_his (
+            emp_code,
+            emp_name,
+            dept_code,
+            dept_name,
+            ks_code,
+            KS_name
+        ) VALUES (
+            #{EMP_CODE,jdbcType=VARCHAR},
+            #{EMP_NAME,jdbcType=VARCHAR},
+            #{DEPT_CODE,jdbcType=VARCHAR},
+            #{DEPT_NAME,jdbcType=VARCHAR},
+            #{KS_CODE,jdbcType=VARCHAR},
+            #{kS_NAME,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <insert id="inpin" parameterType="java.util.Map">
+        INSERT INTO inpin_his (
+            inpatient_code,
+            inpatient_name,
+            dept_code_in,
+            dept_name_in,
+            nurse_dept_code_in,
+            nurse_dept_name_in,
+            dept_code_out,
+            dept_name_out,
+            nurse_dept_code_out,
+            nurse_dept_name_out,
+            date_time_in,
+            date_time_out,
+            doct_code
+        ) VALUES (
+            #{INPATIENT_CODE,jdbcType=VARCHAR},
+            #{INPATIENT_NAME,jdbcType=VARCHAR},
+            #{DEPT_CODE_IN,jdbcType=VARCHAR},
+            #{DEPT_NAME_IN,jdbcType=VARCHAR},
+            #{NURSE_DEPT_CODE_IN,jdbcType=VARCHAR},
+            #{NURSE_DEPT_NAME_IN,jdbcType=VARCHAR},
+            #{DEPT_CODE_OUT,jdbcType=VARCHAR},
+            #{DEPT_NAME_OUT,jdbcType=VARCHAR},
+            #{NURSE_DEPT_CODE_OUT,jdbcType=VARCHAR},
+            #{NURSE_DEPT_NAME_OUT,jdbcType=VARCHAR},
+            cast(#{DATE_TIME_IN,jdbcType=VARCHAR} AS DATETIME),
+            cast(#{DATE_TIME_OUT,jdbcType=VARCHAR} AS DATETIME),
+            #{DOCT_CODE,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <insert id="exam" parameterType="java.util.Map">
+        INSERT INTO exam_report (
+            patient_id,
+            clinic_id,
+            visit_id,
+            report_doctor,
+            report_date
+        ) VALUES (
+            #{PATIENT_ID,jdbcType=VARCHAR},
+            #{CLINIC_ID,jdbcType=VARCHAR},
+            #{VISIT_ID,jdbcType=VARCHAR},
+            #{REPORT_DOCTOR,jdbcType=VARCHAR},
+            cast(#{REPORT_DATE,jdbcType=VARCHAR} AS DATETIME)
+        )
+    </insert>
+
+</mapper>

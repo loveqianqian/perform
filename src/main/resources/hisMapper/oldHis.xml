@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ /*
+  ~  *****************************************************************************
+  ~  * Copyright ( c ) 2016 Heren Tianjin Inc. All Rights Reserved.
+  ~  *
+  ~  * This software is the confidential and proprietary information of Heren Tianjin Inc
+  ~  * ("Confidential Information").  You shall not disclose such Confidential Information
+  ~  *  and shall use it only in accordance with the terms of the license agreement
+  ~  *  you entered into with Heren Tianjin or a Heren Tianjin authorized
+  ~  *  reseller (the "License Agreement").
+  ~  ****************************************************************************
+  ~  */
+  -->
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.herench.dao.his.OldHisDao">
+
+    <select id="zymx" parameterType="java.lang.Integer" resultType="java.util.Map">
+        SELECT *
+        FROM dc_v_jx_zymx_his
+        <where>
+            and date_time >=trunc(sysdate-#{day,jdbcType=NUMERIC}-1)
+            <![CDATA[and date_time <trunc(sysdate-#{day,jdbcType=NUMERIC})]]>
+        </where>
+    </select>
+
+    <select id="mzmx" parameterType="java.lang.Integer" resultType="java.util.Map">
+        SELECT
+        *
+        FROM dc_v_jx_mzmx_his
+        <where>
+            and date_time >=trunc(sysdate-#{day,jdbcType=NUMERIC}-1)
+            <![CDATA[and date_time <trunc(sysdate-#{day,jdbcType=NUMERIC})]]>
+        </where>
+    </select>
+
+    <select id="mzmx_drug" parameterType="java.lang.Integer" resultType="java.util.Map">
+        SELECT
+        *
+        FROM dc_v_jx_mzmx_his_drug
+        <where>
+            and date_time >=trunc(sysdate-#{day,jdbcType=NUMERIC}-1)
+            <![CDATA[and date_time <trunc(sysdate-#{day,jdbcType=NUMERIC})]]>
+        </where>
+    </select>
+
+    <select id="mzmx_not_drug" parameterType="java.lang.Integer" resultType="java.util.Map">
+        SELECT
+        *
+        FROM dc_v_jx_mzmx_his_not_drug
+        <where>
+            and date_time >=trunc(sysdate-#{day,jdbcType=NUMERIC}-1)
+            <![CDATA[and date_time <trunc(sysdate-#{day,jdbcType=NUMERIC})]]>
+        </where>
+    </select>
+
+    <select id="wzDetial" parameterType="java.lang.Integer" resultType="java.util.Map">
+        SELECT *
+        FROM dc_v_jx_wz_detail_his
+        <where>
+            and date_time >=trunc(sysdate-#{day,jdbcType=NUMERIC}-1)
+            <![CDATA[and date_time <trunc(sysdate-#{day,jdbcType=NUMERIC})]]>
+        </where>
+    </select>
+
+    <select id="ssmxMz" parameterType="java.lang.Integer" resultType="java.util.Map">
+        SELECT *
+        FROM dc_v_jx_ssmx_mz_his
+        <where>
+            and date_time >=trunc(sysdate-#{day,jdbcType=NUMERIC}-1)
+            <![CDATA[and date_time <trunc(sysdate-#{day,jdbcType=NUMERIC})]]>
+        </where>
+    </select>
+
+    <select id="ssmxZy" parameterType="java.lang.Integer" resultType="java.util.Map">
+        SELECT *
+        FROM DC_V_JX_SSMX_ZY_HIS
+        <where>
+            and date_time >=trunc(sysdate-#{day,jdbcType=NUMERIC}-1)
+            <![CDATA[and date_time <trunc(sysdate-#{day,jdbcType=NUMERIC})]]>
+        </where>
+    </select>
+
+    <select id="inpin" parameterType="java.lang.Integer" resultType="java.util.Map">
+        SELECT *
+        FROM dc_v_jx_inpin_his
+        <where>
+            and date_time_in >=trunc(sysdate-#{day,jdbcType=NUMERIC}-1)
+            <![CDATA[and date_time_in <trunc(sysdate-#{day,jdbcType=NUMERIC})]]>
+        </where>
+    </select>
+
+    <select id="examMz" parameterType="java.lang.Integer" resultType="java.util.Map">
+        SELECT *
+        FROM dc_v_jx_exam_report_mz
+        <where>
+            and report_date >=trunc(sysdate-#{day,jdbcType=NUMERIC}-1)
+            <![CDATA[and report_date <trunc(sysdate-#{day,jdbcType=NUMERIC})]]>
+        </where>
+    </select>
+
+    <select id="examZy" parameterType="java.lang.Integer" resultType="java.util.Map">
+        SELECT *
+        FROM dc_v_jx_exam_report_zy
+        <where>
+            and report_date >=trunc(sysdate-#{day,jdbcType=NUMERIC}-1)
+            <![CDATA[and report_date <trunc(sysdate-#{day,jdbcType=NUMERIC})]]>
+        </where>
+    </select>
+
+</mapper>
