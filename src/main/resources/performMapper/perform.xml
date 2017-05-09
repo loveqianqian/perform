@@ -58,7 +58,8 @@
             nurse_dept_code,
             patient_code,
             clinic_id,
-            date_time
+            date_time,
+            clinic_label
         ) VALUES (
             #{CHARGE_CODE,jdbcType=VARCHAR},
             #{CHARGE_NAME,jdbcType=VARCHAR},
@@ -74,7 +75,8 @@
             #{NURSE_DEPT_CODE,jdbcType=VARCHAR},
             #{PATIENT_CODE,jdbcType=VARCHAR},
             #{CLINIC_ID,jdbcType=VARCHAR},
-            cast(#{DATE_TIME,jdbcType=VARCHAR} AS DATETIME)
+            cast(#{DATE_TIME,jdbcType=VARCHAR} AS DATETIME),
+            #{CLINIC_LABEL,jdbcType=VARCHAR}
         )
     </insert>
 
@@ -262,13 +264,25 @@
             clinic_id,
             visit_id,
             report_doctor,
-            report_date
+            report_date,
+            req_dept,
+            req_dept_name,
+            performed_by,
+            performed_name,
+            item_code,
+            item_name
         ) VALUES (
             #{PATIENT_ID,jdbcType=VARCHAR},
             #{CLINIC_ID,jdbcType=VARCHAR},
             #{VISIT_ID,jdbcType=VARCHAR},
             #{REPORT_DOCTOR,jdbcType=VARCHAR},
             cast(#{REPORT_DATE,jdbcType=VARCHAR} AS DATETIME)
+            #{REQ_DEPT,jdbcType=VARCHAR},
+            #{REQ_DEPT_NAME,jdbcType=VARCHAR},
+            #{PERFORMED_BY,jdbcType=VARCHAR},
+            #{PERFORMED_NAME,jdbcType=VARCHAR},
+            #{ITEM_CODE,jdbcType=VARCHAR},
+            #{ITEM_NAME,jdbcType=VARCHAR},
         )
     </insert>
 
