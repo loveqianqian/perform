@@ -78,4 +78,10 @@ public interface Convert {
      * @return
      */
     boolean examConvert(int day);
+
+    /**
+     * 医嘱信息
+     * @return
+     */
+    boolean orderConvert();
 }

@@ -25,7 +25,8 @@
         FROM dc_v_jx_zymx_his
         <where>
             and date_time >=sysdate-#{day,jdbcType=NUMERIC}
-            <![CDATA[and date_time <sysdate]]>
+            <![CDATA[and date_time <sysdate
+            ]]>
         </where>
     </select>
 
@@ -35,7 +36,8 @@
         FROM dc_v_jx_mzmx_his
         <where>
             and date_time >=sysdate-#{day,jdbcType=NUMERIC}-1
-            <![CDATA[and date_time <sysdate-#{day,jdbcType=NUMERIC}]]>
+            <![CDATA[and date_time <sysdate-#{day,jdbcType=NUMERIC}
+            ]]>
         </where>
     </select>
 
@@ -45,7 +47,8 @@
         FROM dc_v_jx_mzmx_his_drug
         <where>
             and date_time >=sysdate-#{day,jdbcType=NUMERIC}
-            <![CDATA[and date_time <sysdate]]>
+            <![CDATA[and date_time <sysdate
+            ]]>
         </where>
     </select>
 
@@ -55,7 +58,8 @@
         FROM dc_v_jx_mzmx_his_not_drug
         <where>
             and date_time >=sysdate-#{day,jdbcType=NUMERIC}
-            <![CDATA[and date_time <sysdate]]>
+            <![CDATA[and date_time <sysdate
+            ]]>
         </where>
     </select>
 
@@ -74,7 +78,8 @@
         FROM dc_v_jx_wz_detail_his
         <where>
             and date_time >=sysdate-#{day,jdbcType=NUMERIC}
-            <![CDATA[and date_time <sysdate]]>
+            <![CDATA[and date_time <sysdate
+            ]]>
         </where>
     </select>
 
@@ -83,7 +88,8 @@
         FROM dc_v_jx_ssmx_mz_his
         <where>
             and date_time >=sysdate-#{day,jdbcType=NUMERIC}
-            <![CDATA[and date_time <sysdate]]>
+            <![CDATA[and date_time <sysdate
+            ]]>
         </where>
     </select>
 
@@ -92,7 +98,8 @@
         FROM DC_V_JX_SSMX_ZY_HIS
         <where>
             and date_time >=sysdate-#{day,jdbcType=NUMERIC}
-            <![CDATA[and date_time <sysdate]]>
+            <![CDATA[and date_time <sysdate
+            ]]>
         </where>
     </select>
 
@@ -111,7 +118,8 @@
         FROM dc_v_jx_inpin_his
         <where>
             and date_time_in >=sysdate-#{day,jdbcType=NUMERIC}
-            <![CDATA[and date_time_in <sysdate]]>
+            <![CDATA[and date_time_in <sysdate
+            ]]>
         </where>
     </select>
 
@@ -120,7 +128,8 @@
         FROM dc_v_jx_exam_report_mz
         <where>
             and report_date >=sysdate-#{day,jdbcType=NUMERIC}
-            <![CDATA[and report_date <sysdate]]>
+            <![CDATA[and report_date <sysdate
+            ]]>
         </where>
     </select>
 
@@ -129,8 +138,14 @@
         FROM dc_v_jx_exam_report_zy
         <where>
             and report_date >=sysdate-#{day,jdbcType=NUMERIC}
-            <![CDATA[and report_date <sysdate]]>
+            <![CDATA[and report_date <sysdate
+            ]]>
         </where>
+    </select>
+
+    <select id="order" resultType="java.util.Map">
+        SELECT *
+        FROM dc_v_jx_orders_his
     </select>
 
 </mapper>

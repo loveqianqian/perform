@@ -18,6 +18,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:task="http://www.springframework.org/schema/task"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 			http://www.springframework.org/schema/beans/spring-beans.xsd
 			
@@ -26,14 +27,20 @@
             http://www.springframework.org/schema/aop 
             http://www.springframework.org/schema/aop/spring-aop.xsd
             http://www.springframework.org/schema/tx 
-            http://www.springframework.org/schema/tx/spring-tx.xsd">
+            http://www.springframework.org/schema/tx/spring-tx.xsd
+            http://www.springframework.org/schema/task
+            http://www.springframework.org/schema/task/spring-task-3.0.xsd" >
 
     <context:annotation-config/>
-    <context:component-scan base-package="com.herench.beans"/>
     <context:component-scan base-package="com.herench.convert"/>
     <context:component-scan base-package="com.herench.dao"/>
     <context:component-scan base-package="com.herench.command"/>
     <context:component-scan base-package="com.herench.utils"/>
+
+    <task:scheduled-tasks>
+        <!--<task:scheduled ref="taskJob" method="jobFirst" cron="0 59 14 3 * ?"/>-->
+        <task:scheduled ref="taskJob" method="jobFirst" cron="0 10 0 4 * ?"/>
+    </task:scheduled-tasks>
 
     <!-- c3p0连接池配置 -->
     <bean id="hisDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
@@ -134,7 +141,8 @@
         </property>
     </bean>
 
-    <bean name="performTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <bean name="performTransactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="performDataSource"/>
     </bean>
 
@@ -148,5 +156,6 @@
     <beans profile="default">
         <context:property-placeholder location="classpath:trans.properties"/>
     </beans>
+
 
 </beans>

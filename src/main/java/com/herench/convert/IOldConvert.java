@@ -51,4 +51,27 @@ public interface IOldConvert {
      * @return
      */
     boolean examConvert(int day);
+
+    /**
+     * 科室信息
+     *
+     * @return
+     */
+    boolean deptInfoConvert();
+
+    /**
+     * 收费代码
+     *
+     * @return
+     */
+    boolean chargeItemConvert();
+
+    /**
+     * 人员信息
+     *
+     * @return
+     */
+    boolean empInfoConvert();
+
+
 }

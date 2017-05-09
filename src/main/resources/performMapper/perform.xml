@@ -79,7 +79,7 @@
     </insert>
 
     <delete id="deleteWzItem">
-        delete from wz_item
+        DELETE FROM wz_item
     </delete>
 
     <insert id="wzItem" parameterType="java.util.Map">
@@ -103,7 +103,7 @@
     </insert>
 
     <delete id="deleteChargeItem">
-        delete from charge_item
+        DELETE FROM charge_item
     </delete>
 
     <insert id="chargeItem" parameterType="java.util.Map">
@@ -160,7 +160,9 @@
             assist_code_second,
             assist_code_third,
             patient_code,
-            date_time
+            date_time,
+            OPERATION_SCALE,
+            ANESTHESIA_METHOD
         ) VALUES (
             #{CHARGE_CODE,jdbcType=VARCHAR},
             #{CHARGE_NAME,jdbcType=VARCHAR},
@@ -172,12 +174,14 @@
             #{ASSIST_CODE_SECOND,jdbcType=VARCHAR},
             #{ASSIST_CODE_THIRD,jdbcType=VARCHAR},
             #{PATIENT_CODE,jdbcType=VARCHAR},
-            #{DATE_TIME,jdbcType=VARCHAR}
+            cast(#{DATE_TIME,jdbcType=VARCHAR} AS DATETIME),
+            #{OPERATION_SCALE,jdbcType=VARCHAR},
+            #{ANESTHESIA_METHOD,jdbcType=VARCHAR}
         )
     </insert>
 
     <delete id="deleteDeptInfo">
-        delete from dept_info_his
+        DELETE FROM dept_info_his
     </delete>
 
     <insert id="deptInfo" parameterType="java.util.Map">
@@ -199,7 +203,7 @@
     </insert>
 
     <delete id="deleteEmpInfo">
-        delete from employee_info_his
+        DELETE FROM employee_info_his
     </delete>
 
     <insert id="empInfo" parameterType="java.util.Map">
@@ -268,4 +272,123 @@
         )
     </insert>
 
+    <insert id="order" parameterType="java.util.Map">
+        INSERT INTO orders_his (
+            PATIENT_ID,
+            VISIT_ID,
+            ORDER_NO,
+            ORDER_SUB_NO,
+            REPEAT_INDICATOR,
+            ORDER_CLASS,
+            ORDER_TEXT,
+            ORDER_CODE,
+            DOSAGE,
+            DOSAGE_UNITS,
+            ADMINISTRATION,
+            DURATION,
+            DURATION_UNITS,
+            START_DATE_TIME,
+            STOP_DATE_TIME,
+            FREQUENCY,
+            FREQ_COUNTER,
+            FREQ_INTERVAL,
+            FREQ_INTERVAL_UNIT,
+            FREQ_DETAIL,
+            PERFORM_SCHEDULE,
+            PERFORM_RESULT,
+            ORDERING_DEPT,
+            DOCTOR,
+            STOP_DOCTOR,
+            NURSE,
+            STOP_NURSE,
+            ENTER_DATE_TIME,
+            ORDER_STATUS,
+            BILLING_ATTR,
+            LAST_PERFORM_DATE_TIME,
+            LAST_ACCTING_DATE_TIME,
+            CURRENT_PRESC_NO,
+            BABY_NO,
+            NWARN,
+            PERFORMED_BY,
+            LAST_PERFORM_POINT,
+            LAST_DATE,
+            PZWH,
+            EXECUTE_NURSE,
+            EXECUTE_DATE,
+            EXECUTE_RESULT,
+            FIRST_ADD_NUM,
+            FIRST_ADD_FLAG,
+            DOCTOR_COMMIT_DATE_TIME,
+            DOCTOR_ID,
+            STOP_DOCTOR_ID,
+            NURSE_ID,
+            STOP_NURSE_ID,
+            LAST_BATCH,
+            REPLACE_BATCH,
+            REPLACE_BATCH_EMPNO,
+            BATCH_MEMO,
+            LAST_DRUG_CODE,
+            LAST_DRUG_SPEC,
+            LAST_DRUG_UNITS,
+            NWARN_MESSAGE
+        ) VALUES (
+            #{PATIENT_ID,jdbcType=VARCHAR},
+            #{VISIT_ID,jdbcType=VARCHAR},
+            #{ORDER_NO,jdbcType=VARCHAR},
+            #{ORDER_SUB_NO,jdbcType=VARCHAR},
+            #{REPEAT_INDICATOR,jdbcType=VARCHAR},
+            #{ORDER_CLASS,jdbcType=VARCHAR},
+            #{ORDER_TEXT,jdbcType=VARCHAR},
+            #{ORDER_CODE,jdbcType=VARCHAR},
+            #{DOSAGE,jdbcType=VARCHAR},
+            #{DOSAGE_UNITS,jdbcType=VARCHAR},
+            #{ADMINISTRATION,jdbcType=VARCHAR},
+            #{DURATION,jdbcType=VARCHAR},
+            #{DURATION_UNITS,jdbcType=VARCHAR},
+            #{START_DATE_TIME,jdbcType=VARCHAR},
+            #{STOP_DATE_TIME,jdbcType=VARCHAR},
+            #{FREQUENCY,jdbcType=VARCHAR},
+            #{FREQ_COUNTER,jdbcType=VARCHAR},
+            #{FREQ_INTERVAL,jdbcType=VARCHAR},
+            #{FREQ_INTERVAL_UNIT,jdbcType=VARCHAR},
+            #{FREQ_DETAIL,jdbcType=VARCHAR},
+            #{PERFORM_SCHEDULE,jdbcType=VARCHAR},
+            #{PERFORM_RESULT,jdbcType=VARCHAR},
+            #{ORDERING_DEPT,jdbcType=VARCHAR},
+            #{DOCTOR,jdbcType=VARCHAR},
+            #{STOP_DOCTOR,jdbcType=VARCHAR},
+            #{NURSE,jdbcType=VARCHAR},
+            #{STOP_NURSE,jdbcType=VARCHAR},
+            #{ENTER_DATE_TIME,jdbcType=VARCHAR},
+            #{ORDER_STATUS,jdbcType=VARCHAR},
+            #{BILLING_ATTR,jdbcType=VARCHAR},
+            #{LAST_PERFORM_DATE_TIME,jdbcType=VARCHAR},
+            #{LAST_ACCTING_DATE_TIME,jdbcType=VARCHAR},
+            #{CURRENT_PRESC_NO,jdbcType=VARCHAR},
+            #{BABY_NO,jdbcType=VARCHAR},
+            #{NWARN,jdbcType=VARCHAR},
+            #{PERFORMED_BY,jdbcType=VARCHAR},
+            #{LAST_PERFORM_POINT,jdbcType=VARCHAR},
+            #{LAST_DATE,jdbcType=VARCHAR},
+            #{PZWH,jdbcType=VARCHAR},
+            #{EXECUTE_NURSE,jdbcType=VARCHAR},
+            #{EXECUTE_DATE,jdbcType=VARCHAR},
+            #{EXECUTE_RESULT,jdbcType=VARCHAR},
+            #{FIRST_ADD_NUM,jdbcType=VARCHAR},
+            #{FIRST_ADD_FLAG,jdbcType=VARCHAR},
+            #{DOCTOR_COMMIT_DATE_TIME,jdbcType=VARCHAR},
+            #{DOCTOR_ID,jdbcType=VARCHAR},
+            #{STOP_DOCTOR_ID,jdbcType=VARCHAR},
+            #{NURSE_ID,jdbcType=VARCHAR},
+            #{STOP_NURSE_ID,jdbcType=VARCHAR},
+            #{LAST_BATCH,jdbcType=VARCHAR},
+            #{REPLACE_BATCH,jdbcType=VARCHAR},
+            #{REPLACE_BATCH_EMPNO,jdbcType=VARCHAR},
+            #{BATCH_MEMO,jdbcType=VARCHAR},
+            #{LAST_DRUG_CODE,jdbcType=VARCHAR},
+            #{LAST_DRUG_SPEC,jdbcType=VARCHAR},
+            #{LAST_DRUG_UNITS,jdbcType=VARCHAR},
+            #{NWARN_MESSAGE,jdbcType=VARCHAR}
+        )
+    </insert>
 </mapper>

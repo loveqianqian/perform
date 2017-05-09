@@ -42,4 +42,6 @@ public interface HisDao {
     List<Map<String, Object>> examMz(@Param(value = "day") Integer day);
 
     List<Map<String, Object>> examZy(@Param(value = "day") Integer day);
+
+    List<Map<String, Object>> order();
 }

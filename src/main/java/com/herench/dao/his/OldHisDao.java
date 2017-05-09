@@ -34,4 +34,10 @@ public interface OldHisDao {
     List<Map<String, Object>> examMz(@Param(value = "day") Integer day);
 
     List<Map<String, Object>> examZy(@Param(value = "day") Integer day);
+
+    List<Map<String, Object>> deptInfo();
+
+    List<Map<String, Object>> empInfo();
+
+    List<Map<String, Object>> chargeItem();
 }

@@ -182,4 +182,83 @@ public class OldConvert implements IOldConvert {
             return false;
         }
     }
+
+    /**
+     * 科室信息
+     *
+     * @return
+     */
+    @Override
+    public boolean deptInfoConvert() {
+        try {
+            List<Map<String, Object>> deptInfo = oldHisDao.deptInfo();
+            performDao.deleteDeptInfo();
+            for (Map<String, Object> map : deptInfo) {
+                for (String key : map.keySet()) {
+                    map.put(key, transUtils.toTrans(map.get(key)));
+                }
+                performDao.deptInfo(map);
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.info(e.getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * 收费代码
+     *
+     * @return
+     */
+    @Override
+    public boolean chargeItemConvert() {
+        try {
+            List<Map<String, Object>> chargeItem = oldHisDao.chargeItem();
+            performDao.deleteChargeItem();
+            for (Map<String, Object> map : chargeItem) {
+                for (String key : map.keySet()) {
+                    map.put(key, transUtils.toTrans(map.get(key)));
+                }
+                performDao.chargeItem(map);
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.info(e.getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * 人员信息
+     *
+     * @return
+     */
+    @Override
+    public boolean empInfoConvert() {
+        try {
+//            Pattern p = Pattern.compile("[\u4e00-\u9fa5]");
+            List<Map<String, Object>> empInfo = oldHisDao.empInfo();
+            performDao.deleteEmpInfo();
+            for (Map<String, Object> map : empInfo) {
+//                String dept_code = String.valueOf(transUtils.toTrans(map.get("DEPT_CODE")));
+//                Matcher matcher = p.matcher(dept_code);
+//                if (!matcher.find()) {
+                for (String key : map.keySet()) {
+                    map.put(key, transUtils.toTrans(map.get(key)));
+                }
+                performDao.empInfo(map);
+//                }
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.info(e.getMessage());
+            return false;
+        }
+    }
+
+
 }

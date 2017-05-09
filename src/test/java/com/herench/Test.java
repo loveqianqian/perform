@@ -15,4 +15,5 @@ public class Test {
         Connection connection = DriverManager.getConnection("jdbc:sqlserver://192.168.11.17:1433;DatabaseName=xqjxpt", "sa", "`1q");
         System.out.println(connection);
     }
+
 }

@@ -295,4 +295,26 @@ public class SampleConvert implements Convert {
         }
     }
 
+    /**
+     * 医嘱信息
+     *
+     * @return
+     */
+    @Override
+    public boolean orderConvert() {
+        try {
+            List<Map<String, Object>> orderInfo = hisDao.order();
+            for (Map<String, Object> map : orderInfo) {
+                for (String key : map.keySet()) {
+                    map.put(key, transUtils.toTrans(map.get(key)));
+                }
+                performDao.order(map);
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.info(e.getMessage());
+            return false;
+        }
+    }
 }

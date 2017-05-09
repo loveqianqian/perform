@@ -55,18 +55,18 @@ public class OldTimer extends Timer {
 //                    } else {
 //                        logger.info("检查报告信息提取成功");
 //                    }
-//                    logger.info("住院明细账提取开始");
-//                    if (!convert.zymxConvert(count)) {
-//                        logger.info("住院明细账提取失败");
-//                    } else {
-//                        logger.info("住院明细账提取成功");
-//                    }
-                    logger.info("物资领用明细账提取开始");
-                    if (!convert.wzDetialConvert(count)) {
-                        logger.info("物资领用明细账提取失败");
+                    logger.info("住院明细账提取开始");
+                    if (!convert.zymxConvert(count)) {
+                        logger.info("住院明细账提取失败");
                     } else {
-                        logger.info("物资领用明细账提取成功");
+                        logger.info("住院明细账提取成功");
                     }
+//                    logger.info("物资领用明细账提取开始");
+//                    if (!convert.wzDetialConvert(count)) {
+//                        logger.info("物资领用明细账提取失败");
+//                    } else {
+//                        logger.info("物资领用明细账提取成功");
+//                    }
 //                    logger.info("门诊明细账提取开始");
 //                    if (!convert.mzmxConvert(count)) {
 //                        logger.info("门诊明细账提取失败");
@@ -85,7 +85,25 @@ public class OldTimer extends Timer {
 //                    } else {
 //                        logger.info("物资字典表提取成功");
 //                    }
-                    if (count == TimeUtils.getRealGap("2017-2-28")) {//到这天结束
+//                    logger.info("科室信息提取开始");
+//                    if (!convert.deptInfoConvert()) {
+//                        logger.info("科室信息提取失败");
+//                    } else {
+//                        logger.info("科室信息提取成功");
+//                    }
+//                    logger.info("收费代码表提取开始");
+//                    if (!convert.chargeItemConvert()) {
+//                        logger.info("收费代码表提取失败");
+//                    } else {
+//                        logger.info("收费代码表提取成功");
+//                    }
+//                    logger.info("人员信息提取开始");
+//                    if (!convert.empInfoConvert()) {
+//                        logger.info("人员信息提取失败");
+//                    } else {
+//                        logger.info("人员信息提取成功");
+//                    }
+                    if (count == TimeUtils.getRealGap("2016-12-31")) {//到这天结束
                         logger.info("all have done!!!");
                         timer.cancel();
                     }
@@ -93,7 +111,7 @@ public class OldTimer extends Timer {
                     this.count--;
                 }
             };
-            timer.schedule(timerTask, TimeUtils.getDelay("2017-3-23 12:47:00"), 1000L * 60L);
+            timer.schedule(timerTask, TimeUtils.getDelay("2017-4-13 0:02:00"), 1000L * 25L);
         } catch (Exception e) {
             e.printStackTrace();
             logger.error(e.getMessage(), e);

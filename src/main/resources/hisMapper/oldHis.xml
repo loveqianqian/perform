@@ -113,4 +113,19 @@
         </where>
     </select>
 
+    <select id="chargeItem" resultType="java.util.Map">
+        SELECT *
+        FROM dc_v_jx_charge_item
+    </select>
+
+    <select id="deptInfo" resultType="java.util.Map">
+        SELECT *
+        FROM dc_v_jx_dept_info_his
+    </select>
+
+    <select id="empInfo" resultType="java.util.Map">
+        SELECT *
+        FROM dc_v_jx_employee_info_his
+    </select>
+
 </mapper>
