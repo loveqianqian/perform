@@ -276,15 +276,20 @@
             #{CLINIC_ID,jdbcType=VARCHAR},
             #{VISIT_ID,jdbcType=VARCHAR},
             #{REPORT_DOCTOR,jdbcType=VARCHAR},
-            cast(#{REPORT_DATE,jdbcType=VARCHAR} AS DATETIME)
+            cast(#{REPORT_DATE,jdbcType=VARCHAR} AS DATETIME),
             #{REQ_DEPT,jdbcType=VARCHAR},
             #{REQ_DEPT_NAME,jdbcType=VARCHAR},
             #{PERFORMED_BY,jdbcType=VARCHAR},
             #{PERFORMED_NAME,jdbcType=VARCHAR},
             #{ITEM_CODE,jdbcType=VARCHAR},
-            #{ITEM_NAME,jdbcType=VARCHAR},
+            #{ITEM_NAME,jdbcType=VARCHAR}
         )
     </insert>
+
+    <delete id="deleteOrder">
+        DELETE FROM orders_his
+    </delete>
+
 
     <insert id="order" parameterType="java.util.Map">
         INSERT INTO orders_his (

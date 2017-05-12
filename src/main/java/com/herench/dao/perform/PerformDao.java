@@ -42,6 +42,8 @@ public interface PerformDao {
 
     void exam(Map<String, Object> params);
 
+    void deleteOrder();
+
     void order(Map<String, Object> params);
 
 }

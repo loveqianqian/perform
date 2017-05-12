@@ -304,6 +304,7 @@ public class SampleConvert implements Convert {
     public boolean orderConvert() {
         try {
             List<Map<String, Object>> orderInfo = hisDao.order();
+            performDao.deleteOrder();
             for (Map<String, Object> map : orderInfo) {
                 for (String key : map.keySet()) {
                     map.put(key, transUtils.toTrans(map.get(key)));

@@ -43,24 +43,24 @@ public class OldTimer extends Timer {
 
                 @Override
                 public void run() {
-//                    logger.info("手术登记表提取开始");
-//                    if (!convert.ssmxConvert(count)) {
-//                        logger.info("手术登记表提取失败");
-//                    } else {
-//                        logger.info("手术登记表提取成功");
-//                    }
+                    logger.info("手术登记表提取开始");
+                    if (!convert.ssmxConvert(count)) {
+                        logger.info("手术登记表提取失败");
+                    } else {
+                        logger.info("手术登记表提取成功");
+                    }
 //                    logger.info("检查报告信息提取开始");
 //                    if (!convert.examConvert(count)) {
 //                        logger.info("检查报告信息提取失败");
 //                    } else {
 //                        logger.info("检查报告信息提取成功");
 //                    }
-                    logger.info("住院明细账提取开始");
-                    if (!convert.zymxConvert(count)) {
-                        logger.info("住院明细账提取失败");
-                    } else {
-                        logger.info("住院明细账提取成功");
-                    }
+//                    logger.info("住院明细账提取开始");
+//                    if (!convert.zymxConvert(count)) {
+//                        logger.info("住院明细账提取失败");
+//                    } else {
+//                        logger.info("住院明细账提取成功");
+//                    }
 //                    logger.info("物资领用明细账提取开始");
 //                    if (!convert.wzDetialConvert(count)) {
 //                        logger.info("物资领用明细账提取失败");
@@ -111,7 +111,7 @@ public class OldTimer extends Timer {
                     this.count--;
                 }
             };
-            timer.schedule(timerTask, TimeUtils.getDelay("2017-4-13 0:02:00"), 1000L * 25L);
+            timer.schedule(timerTask, TimeUtils.getDelay("2017-5-12 15:50:00"), 1000L * 25L);
         } catch (Exception e) {
             e.printStackTrace();
             logger.error(e.getMessage(), e);
