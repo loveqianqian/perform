@@ -1,5 +1,7 @@
 package com.herench;
 
+import com.herench.utils.TimeUtils;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -14,6 +16,8 @@ public class Test {
     public static void main(String[] args) throws Exception {
         Connection connection = DriverManager.getConnection("jdbc:sqlserver://192.168.11.17:1433;DatabaseName=xqjxpt", "sa", "`1q");
         System.out.println(connection);
+
+        System.out.println(TimeUtils.getRealGap("2017-10-31"));
     }
 
 }
